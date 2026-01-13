@@ -2812,3 +2812,26 @@ body.dark-mode #article-container pre::-webkit-scrollbar-thumb:hover {
     padding-right: 0.5rem;
   }
 }
+
+/* --- 修复分级有序列表 (由 XSimple 提供) --- */
+.article-entry ol, .post-content ol {
+    list-style-type: decimal;
+    padding-left: 1.5em; /* 增加左侧缩进 */
+}
+
+/* 第二层：由数字变为字母 (a. b. c.) */
+.article-entry ol ol, .post-content ol ol {
+    list-style-type: lower-alpha !important;
+    margin-left: 20px;
+}
+
+/* 第三层：由字母变为罗马数字 (i. ii. iii.) */
+.article-entry ol ol ol, .post-content ol ol ol {
+    list-style-type: lower-roman !important;
+    margin-left: 20px;
+}
+
+/* 确保列表项之间有点间距，不那么拥挤 */
+.article-entry li, .post-content li {
+    margin: 5px 0;
+}

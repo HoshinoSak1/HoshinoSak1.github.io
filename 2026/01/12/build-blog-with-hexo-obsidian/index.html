@@ -184,7 +184,7 @@ mjx-container[display="true"] + br {
 </ol>
 <h3 id="主题：Themes-Hexo"><a href="#主题：Themes-Hexo" class="headerlink" title="主题：Themes | Hexo"></a>主题：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a></h3><p>如果希望自己的网页看起来更好看一些，可以考虑接入主题，接入主题的流程如下：</p>
 <ol>
-<li><strong>路径确保</strong> ： 确保自己的博客根目录下 (即上文的\<folder\>文件夹内，而非与\<folder\>文件夹同级)。</folder\></folder\></li>
+<li><strong>路径确保</strong> ： 确保自己的博客根目录下 (即上文的<folder\>文件夹内，而非与<folder\>文件夹同级)。</folder\></folder\></li>
 <li><p><strong>下载主题</strong> ： 主题的 Themes 超链接中，提供了各式各样的主题，选中一个打开，即可达到对应的 git 界面，这里以常用的 <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">A Hexo Theme: Butterfly</a> 为例。在根目录中执行：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Install stable version (recommended)</span></span><br><span class="line">	git clone <span class="literal">-b</span> master https://github.com/jerryc127/hexo<span class="literal">-theme-butterfly</span>.git themes/butterfly</span><br></pre></td></tr></table></figure>
 </li>
@@ -205,24 +205,20 @@ mjx-container[display="true"] + br {
 <li>在 GitHub 创建仓库<ol>
 <li>登录你的 GitHub 账号。</li>
 <li>点击右上角的 <strong>+</strong> 号，选择 <strong>New repository</strong>。</li>
-<li><strong>Repository name</strong>（关键）：<ul>
-<li>必须填为：<code>你的用户名.github.io</code></li>
-<li>例如：如果你的 GitHub 用户名是 <code>zhangsan</code>，仓库名必须是 <code>zhangsan.github.io</code>。</li>
-<li><em>解释：这是 GitHub Pages 的特殊规则，只有这样命名，你的博客地址才会是简洁的 <code>https://zhangsan.github.io</code>。</em></li>
-</ul>
-</li>
+<li><strong>Repository name</strong>（关键）：<pre><code> - 必须填为：`你的用户名.github.io`
+ - 例如：如果你的 GitHub 用户名是 `zhangsan`，仓库名必须是 `zhangsan.github.io`。
+ - _解释：这是 GitHub Pages 的特殊规则，只有这样命名，你的博客地址才会是简洁的 `https://zhangsan.github.io`。_
+</code></pre></li>
 <li>确保选择 <strong>Public</strong>（公开）。</li>
 <li><strong>需要注意的是</strong>，这里 GitPage 的官方教程会教你打开 <code>Add README</code> 为 <code>On</code>，但是基于 Hexo 进行搭建时，这里需要确保选择的是 <strong><code>Off</code></strong>，后续可以规避一部分配置。</li>
 <li>点击 <strong>Create repository</strong>。</li>
 </ol>
 </li>
-<li>配置网页仓来源，这里遵循 GitPage 教程即可。<ol>
-<li>在你的仓库名称下，点击<strong>设置</strong> 。如果看不到“设置”标签，选择下拉菜单，然后点击<strong>设置</strong> 。</li>
-<li>在侧边栏的“代码与自动化”部分，点击<strong>页面</strong> 。</li>
-<li>在“构建和部署”中，在“源”下，从<strong>分支选择部署</strong> 。</li>
-<li>在“构建和部署”中，在“分支”下，使用分支下拉菜单选择发布源。需要注意这里的发布源是<strong><code>main</code></strong>还是<strong><code>master</code></strong> ，后续配置有用。 <img src="/2026/01/12/build-blog-with-hexo-obsidian/page.png" alt></li>
-</ol>
-</li>
+<li>配置网页仓来源，这里遵循 GitPage 教程即可。<pre><code>1. 在你的仓库名称下，点击**设置** 。如果看不到“设置”标签，选择下拉菜单，然后点击**设置** 。
+2. 在侧边栏的“代码与自动化”部分，点击**页面** 。
+3. 在“构建和部署”中，在“源”下，从**分支选择部署** 。
+4. 在“构建和部署”中，在“分支”下，使用分支下拉菜单选择发布源。需要注意这里的发布源是**`main`**还是**`master`** ，后续配置有用。 ![](page.png)
+</code></pre></li>
 <li>配置本地 Hexo<br> 打开根目录下的 <strong><code>_config.yml</code></strong> 文件，拉到最底部，找到 <code>deploy</code> 部分。请将其修改为如下内容（注意冒号后面通常要有一个空格）： <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  		<span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  		<span class="attr">repo:</span> <span class="string">https://github.com/你的用户名/你的用户名.github.io.git</span></span><br><span class="line">  		<span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
  需要额外注意的是 branch 配置，如果下拉菜单配置发布源时，使用的是<strong><code>master</code></strong>，需要改为 master。<br> 这部分配置是为了使用之前安装的<strong>Git 部署插件</strong>来进行快速的博客部署。<br> 此外，<strong><code>_config.yml</code></strong> 文件顶部还存在部分显示相关的细节配置，也可以参考着修改：<br> ![]build-blog-with-hexo-obsidian/config.png)</li>
 <li><strong>Hexo 三连</strong> ： 配置完成后，在终端依次运行以下三条命令，第一次 hexo d 时会提示你输入 GetHub 用户名以及密码，正常处理登录即可，完成后稍微 1-2 分钟后，在浏览器访问 <strong><code>https://你的用户名.github.io</code></strong> ，这时应该可以看到你的网页正常显示了。<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清除缓存：</span></span><br><span class="line">    hexo clean</span><br><span class="line"><span class="comment"># 生成静态网页：</span></span><br><span class="line">    hexo g</span><br><span class="line"><span class="comment"># 部署到 GitHub：</span></span><br><span class="line">    hexo d</span><br></pre></td></tr></table></figure>
